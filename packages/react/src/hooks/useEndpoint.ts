@@ -17,7 +17,7 @@ const shortnames = new Set([
 const DEFAULT_ENDPOINT =
   process.env.NEXT_PUBLIC_SOLANA_URL ||
   process.env.REACT_APP_SOLANA_URL ||
-  "https://strataprotocol.genesysgo.net";
+  "https://monke4e51355bf2a949daad46e7f4a1a22c4b.xyz2.hyperplane.dev/";
 
 export function getClusterAndEndpoint(clusterOrEndpoint: string): {
   cluster: string;
@@ -25,7 +25,11 @@ export function getClusterAndEndpoint(clusterOrEndpoint: string): {
 } {
   if (clusterOrEndpoint) {
     if (clusterOrEndpoint.startsWith("http")) {
-      if (clusterOrEndpoint.includes("dev")) {
+      if (
+        clusterOrEndpoint.includes("dev") &&
+        clusterOrEndpoint !=
+          "https://monke4e51355bf2a949daad46e7f4a1a22c4b.xyz2.hyperplane.dev/"
+      ) {
         return { cluster: "devnet", endpoint: clusterOrEndpoint };
       } else {
         return { cluster: "mainnet-beta", endpoint: clusterOrEndpoint };
@@ -44,7 +48,8 @@ export function getClusterAndEndpoint(clusterOrEndpoint: string): {
       } else if (clusterOrEndpoint === "mainnet-beta") {
         return {
           cluster: "mainnet-beta",
-          endpoint: "https://strataprotocol.genesysgo.net",
+          endpoint:
+            "https://monke4e51355bf2a949daad46e7f4a1a22c4b.xyz2.hyperplane.dev/",
         };
       }
 
